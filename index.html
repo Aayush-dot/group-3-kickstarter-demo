@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Discover Technology Projects</title>
+<style>
+  :root{
+    --green:#05ce78; --green-dark:#028858; --ink:#282828; --muted:#656969;
+    --line:#e2e2e2; --track:#e7e7e7; --bg:#ffffff;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Inter","Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+
+  /* ---------- header ---------- */
+  .top{display:flex;align-items:center;gap:32px;padding:14px 42px;}
+  .logo{font-weight:900;font-size:30px;letter-spacing:-.5px;color:var(--green);
+    font-family:"Arial Black","Helvetica Neue",Arial,sans-serif;transform:scaleY(.92);white-space:nowrap}
+  .search{flex:1;max-width:672px;display:flex;align-items:center;gap:12px;border:1px solid var(--line);
+    border-radius:6px;padding:13px 16px;color:#8c8c8c;font-size:16px;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+  .top-right{margin-left:auto;display:flex;gap:18px;align-items:center;font-size:16px}
+  .btn-outline{border:1px solid var(--line);border-radius:4px;padding:12px 15px}
+  .cats{display:flex;justify-content:center;gap:12px;font-size:16px;font-weight:500;padding:10px 0 18px;
+    border-bottom:1px solid var(--line)}
+  .cats .sep{border-left:1px solid var(--line);margin:0 4px}
+
+  /* ---------- layout ---------- */
+  .wrap{display:flex;gap:24px;padding:24px 42px 40px;max-width:1440px;margin:0 auto}
+  .side{width:332px;flex:0 0 332px;font-size:16px}
+  .side h3{font-size:20px;font-weight:500;margin:0 0 18px}
+  .side h4{font-size:14px;font-weight:500;margin:22px 0 12px}
+  .opt{display:flex;align-items:center;gap:10px;margin:12px 0}
+  .box{width:22px;height:22px;border:1px solid #9a9a9a;border-radius:3px;display:inline-block}
+  .box.on{background:#1b1b1b;border-color:#1b1b1b}
+  .main{flex:1;min-width:0}
+  .head{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:18px}
+  .head h1{font-size:28px;font-weight:500;margin:0}
+  .head .count{font-size:14px;color:var(--muted);margin-top:6px}
+  .sort{display:flex;align-items:center;gap:14px;font-size:14px;color:var(--muted)}
+  .sort .sel{border:1px solid var(--line);border-radius:4px;padding:12px 14px;width:200px;color:var(--ink);font-size:16px}
+
+  .grid{display:grid;gap:24px 24px;grid-template-columns:repeat(var(--cols,4),minmax(0,1fr))}
+
+  /* ---------- card ---------- */
+  .card{display:flex;flex-direction:column}
+  .thumb{position:relative;aspect-ratio:16/9;border-radius:8px 8px 0 0;overflow:hidden;background:#eef0f0}
+  .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+  .thumb.placeholder{background:#e9ecec}
+  .bar{height:6px;background:var(--track);border-radius:0 0 4px 4px;overflow:hidden}
+  .bar>i{display:block;height:100%;background:var(--green)}
+  .body{display:flex;gap:10px;padding:14px 4px 0 6px}
+  .avatar{flex:0 0 40px;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;color:#fff}
+  .info{flex:1;min-width:0}
+  .title-row{display:flex;gap:8px;align-items:flex-start}
+  .title{font-size:19px;line-height:1.25;font-weight:500;margin:0;flex:1}
+  .pwl{display:inline-block;width:19px;height:19px;vertical-align:-3px;margin-right:4px}
+  .bm{flex:0 0 18px;margin-top:3px}
+  .creator{font-size:13px;color:var(--muted);margin-top:3px}
+  .meta{display:flex;align-items:center;gap:6px;font-size:14.5px;color:#444;margin-top:7px}
+  .money{font-size:14.5px;color:#2b2b2b;margin-top:6px;line-height:1.35}
+  .money b{color:var(--green-dark);font-weight:700}
+  .rule{font-size:13px;color:var(--muted);margin-top:4px}
+  .blurb{font-size:15.5px;line-height:1.5;color:#333;margin-top:10px}
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+  .tag{border:1px solid #cfcfcf;border-radius:999px;padding:6px 12px;font-size:14px;background:#fff}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="logo" id="logo">FUNDSPARK</div>
+  <div class="search">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+    Search projects, creators, and categories
+  </div>
+  <div class="top-right"><span class="btn-outline">For creators</span><span>Log in</span></div>
+</header>
+<nav class="cats">
+  <span>Art</span><span>Comics</span><span>Crafts</span><span>Dance</span><span>Design</span><span>Fashion</span>
+  <span>Film</span><span>Food</span><span>Games</span><span>Journalism</span><span>Music</span><span>Photography</span>
+  <span>Publishing</span><span>Technology</span><span>Theater</span><span class="sep"></span><span>Discover</span>
+</nav>
+
+<div class="wrap">
+  <aside class="side" id="side" hidden>
+    <h3>Filter by</h3>
+    <h4>Project status</h4>
+    <div class="opt"><span class="box on"></span>Upcoming</div>
+    <div class="opt"><span class="box on"></span>Live</div>
+    <div class="opt"><span class="box on"></span>Late pledge</div>
+    <div class="opt"><span class="box"></span>Include ended projects</div>
+    <h4>Goal</h4>
+    <div class="opt"><span class="box"></span>Under $1,000</div>
+    <div class="opt"><span class="box"></span>$1,000 to $10,000</div>
+    <div class="opt"><span class="box"></span>$10,000 to $100,000</div>
+  </aside>
+  <main class="main">
+    <div class="head">
+      <div><h1 id="heading">Technology</h1><div class="count" id="count"></div></div>
+      <div class="sort">Sort by <div class="sel">Relevance</div></div>
+    </div>
+    <div class="grid" id="grid"></div>
+  </main>
+</div>
+
+<script>
+const PROJECTS = [
+  {
+    "id": "P01",
+    "title": "Home Harvest",
+    "creator": "Home Harvest",
+    "blurb": "The world's smartest farm. In your home.",
+    "category": "Hardware",
+    "location": "York, UK",
+    "pledged": 196452,
+    "goal": 6687,
+    "backers": 410,
+    "days_left": 25,
+    "currency": "$",
+    "funding_rule": "all_or_nothing",
+    "staff_pick": true,
+    "card_image": "img/P01.jpg"
+  },
+  {
+    "id": "P02",
+    "title": "World's First AI Electric Screwdriver With Eyes And Brain",
+    "creator": "Arrowmax",
+    "blurb": "No more guesswork! The AI screwdriver reads the screw, lights the right bit, and locks in safe torque - Unlock a new way of working.",
+    "category": "Gadgets",
+    "location": "Kowloon, Hong Kong",
+    "pledged": 94065,
+    "goal": 11476,
+    "backers": 562,
+    "days_left": 40,
+    "currency": "$",
+    "funding_rule": "all_or_nothing",
+    "staff_pick": true,
+    "card_image": "img/P02.jpg"
+  },
+  {
+    "id": "P03",
+    "title": "DogVibe: The Smart Dog Training Collar for Off-Leash Freedom",
+    "creator": "DogVibe",
+    "blurb": "A smart training system that detects leash pulling, sets virtual proximity fences, and runs from an app on your phone. No subscription.",
+    "category": "Hardware",
+    "location": "Austin, TX",
+    "pledged": 522341,
+    "goal": 20000,
+    "backers": 1555,
+    "days_left": 4,
+    "currency": "$",
+    "funding_rule": "all_or_nothing",
+    "staff_pick": true,
+    "card_image": "img/P03.jpg"
+  },
+  {
+    "id": "P04",
+    "title": "Amoeba One: Mini keychain-phone.",
+    "creator": "Amoeba One",
+    "blurb": "Amoeba has a wavy screen, a built-in carabiner, and comes in a variety of fun colors.",
+    "category": "Gadgets",
+    "location": "Troy, NY",
+    "pledged": 245767,
+    "goal": 25000,
+    "backers": 2216,
+    "days_left": 33,
+    "currency": "$",
+    "funding_rule": "all_or_nothing",
+    "staff_pick": true,
+    "card_image": "img/P04.jpg"
+  },
+  {
+    "id": "P05",
+    "title": "Await: Digital Ease, Analog Soul. Camera for what matters.",
+    "creator": "Rolling Square",
+    "blurb": "A modern camera inspired by film, designed to slow down, capture with intention, and receive meaningful prints at home.",
+    "category": "Camera Equipment",
+    "location": "Lugano, Switzerland",
+    "pledged": 117561,
+    "goal": 22408,
+    "backers": 1002,
+    "days_left": 14,
+    "currency": "$",
+    "funding_rule": "all_or_nothing",
+    "staff_pick": true,
+    "card_image": "img/P05.jpg"
+  },
+  {
+    "id": "P06",
+    "title": "WUBEN G6 | Ultra Slim Multi-Use Keychain Light",
+    "creator": "WUBEN",
+    "blurb": "500 lm Main Light | 100 lm Side Light | Low-Force Switch | Detachable Blade | Adjustable Clip | Hidden USB Port",
+    "category": "Gadgets",
+    "location": "Hong Kong, Hong Kong",
+    "pledged": 114294,
+    "goal": 4462,
+    "backers": 1762,
+    "days_left": 27,
+    "currency": "$",
+    "funding_rule": "all_or_nothing",
+    "staff_pick": true,
+    "card_image": "img/P06.jpg"
+  },
+  {
+    "id": "P07",
+    "title": "GhostBed Climate Pro™ - Cooling & Heating Mattress Cover",
+    "creator": "GhostBed",
+    "blurb": "Temperature-controlled sleep, made simpler | Dual-zone cooling and heating system | No subscription required",
+    "category": "Hardware",
+    "location": "Plantation, FL",
+    "pledged": 433600,
+    "goal": 20000,
+    "backers": 1500,
+    "days_left": 11,
+    "currency": "$",
+    "funding_rule": "all_or_nothing",
+    "staff_pick": true,
+    "card_image": "img/P07.jpg"
+  },
+  {
+    "id": "P08",
+    "title": "UniFormation S10: First Automated Desktop Resin 3D Printer",
+    "creator": "UniFormation 3D",
+    "blurb": "Automated Resin Printing & Post-Processing System | Less Resin Contact & Less Mess | Minimal Odor | 10.1\" 16K Resolution | Beginner Friendly",
+    "category": "3D Printing",
+    "location": "Hong Kong, Hong Kong",
+    "pledged": 463000,
+    "goal": 50000,
+    "backers": 900,
+    "days_left": 37,
+    "currency": "$",
+    "funding_rule": "all_or_nothing",
+    "staff_pick": true,
+    "card_image": "img/P08.jpg"
+  }
+];
+const PWL_SVG = '<svg class="pwl" viewBox="0 0 24 24" aria-label="Project We Love"><path fill="#05ce78" d="M12 1.5l2.6 1.9 3.2-.1 1 3.1 2.6 1.9-1 3.1 1 3.1-2.6 1.9-1 3.1-3.2-.1L12 22.5l-2.6-1.9-3.2.1-1-3.1-2.6-1.9 1-3.1-1-3.1 2.6-1.9 1-3.1 3.2.1z"/><path fill="#fff" d="M12 16.6s-4.4-2.7-4.4-5.6c0-1.4 1.1-2.4 2.3-2.4.9 0 1.6.5 2.1 1.2.5-.7 1.2-1.2 2.1-1.2 1.2 0 2.3 1 2.3 2.4 0 2.9-4.4 5.6-4.4 5.6z"/></svg>';
+const CLOCK = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#444" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>';
+const BOOKMARK = '<svg class="bm" width="16" height="20" viewBox="0 0 16 20" fill="none" stroke="#333" stroke-width="1.8"><path d="M2 2h12v16l-6-4.5L2 18z"/></svg>';
+const AVATAR_COLOURS = ['#3d5a80','#6a4c93','#2a9d8f','#c8553d','#577590','#8d6a9f','#4f772d','#b5838d'];
+
+function fmtMoney(cur, n){ return cur + Math.round(n).toLocaleString('en-US'); }
+function esc(s){ return String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+
+function cardHTML(p, cfg, idx){
+  const pct = Math.round(p.pledged / p.goal * 100);
+  const img = cfg.image_mode === 'none'
+      ? '<div class="thumb placeholder"></div>'
+      : `<div class="thumb"><img src="${esc(p.card_image)}" alt=""></div>`;
+  const colour = AVATAR_COLOURS[(p.id.charCodeAt(p.id.length-1)) % AVATAR_COLOURS.length];
+  const initial = esc((p.creator || p.title).trim()[0].toUpperCase());
+  const days = p.days_left === 1 ? '1 day left' : `${p.days_left} days left`;
+  const rule = p.funding_rule === 'keep_it_all' ? 'Flexible funding (keep it all)' : 'All or nothing';
+  return `
+  <article class="card" data-id="${esc(p.id)}" data-position="${idx}">
+    ${img}
+    <div class="bar"><i style="width:${Math.min(pct,100)}%"></i></div>
+    <div class="body">
+      <div class="avatar" style="background:${colour}">${initial}</div>
+      <div class="info">
+        <div class="title-row">
+          <h2 class="title">${p.staff_pick ? PWL_SVG : ''}${esc(p.title)}</h2>${BOOKMARK}
+        </div>
+        <div class="creator">${esc(p.creator)}</div>
+        <div class="meta">${CLOCK}<span>${days} • ${pct.toLocaleString('en-US')}% funded</span></div>
+        ${cfg.show_pledged_line ? `<div class="money"><b>${fmtMoney(p.currency,p.pledged)}</b> pledged of ${fmtMoney(p.currency,p.goal)} goal · ${p.backers.toLocaleString('en-US')} backers</div>` : ''}
+        ${cfg.show_funding_rule_on_card ? `<div class="rule">${rule}</div>` : ''}
+        ${cfg.show_blurb ? `<div class="blurb">${esc(p.blurb)}</div>` : ''}
+        ${cfg.show_tags ? `<div class="tags"><span class="tag">${esc(p.category)}</span><span class="tag">${esc(p.location)}</span></div>` : ''}
+      </div>
+    </div>
+  </article>`;
+}
+
+const CFG = { site_name: "FUNDSPARK", page_heading: "Technology", show_pledged_line: true,
+  show_blurb: true, show_tags: true, show_funding_rule_on_card: false, show_sidebar: false,
+  image_mode: "real", columns: 4 };
+
+document.getElementById('logo').textContent = CFG.site_name;
+document.getElementById('heading').textContent = CFG.page_heading;
+document.getElementById('count').textContent = PROJECTS.length + ' projects';
+document.getElementById('side').hidden = !CFG.show_sidebar;
+const grid = document.getElementById('grid');
+grid.style.setProperty('--cols', CFG.columns);
+grid.innerHTML = PROJECTS.map((p,i) => cardHTML(p, CFG, i)).join('');
+</script>
+</body>
+</html>
