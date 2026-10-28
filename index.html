@@ -64,6 +64,9 @@
   .money b{color:var(--green-dark);font-weight:700}
   .rule{font-size:13px;color:var(--muted);margin-top:4px}
   .blurb{font-size:15.5px;line-height:1.5;color:#333;margin-top:10px}
+  .about{margin-top:10px}
+  .about-label{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+  .about p{font-size:14.5px;line-height:1.55;color:#333;margin:4px 0 0}
   .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
   .tag{border:1px solid #cfcfcf;border-radius:999px;padding:6px 12px;font-size:14px;background:#fff}
 </style>
@@ -112,6 +115,7 @@ const PROJECTS = [
     "title": "Home Harvest",
     "creator": "Home Harvest",
     "blurb": "The world's smartest farm. In your home.",
+    "description": "Home Harvest is an indoor farming cabinet that grows fresh vegetables and herbs at home. It is aimed at people who want homegrown greens but lack garden space. The tall unit has a glass door and three separately lit growing shelves. A smaller countertop version holds one shelf. Plants grow in pods under built-in lights all year round. The project is run by Home Harvest, based in York, United Kingdom.",
     "category": "Hardware",
     "location": "York, UK",
     "pledged": 196452,
@@ -128,6 +132,7 @@ const PROJECTS = [
     "title": "World's First AI Electric Screwdriver With Eyes And Brain",
     "creator": "Arrowmax",
     "blurb": "No more guesswork! The AI screwdriver reads the screw, lights the right bit, and locks in safe torque - Unlock a new way of working.",
+    "description": "The Arrowspace S1 is a pen-sized electric screwdriver with a built-in camera that recognises screws. It is aimed at people who repair electronics and often pick the wrong bit or overtighten. The tool identifies the screw, lights up the matching bit in its storage case, and locks in a safe torque. A companion phone app shows the current settings. The project is run by Arrowmax, based in Kowloon, Hong Kong.",
     "category": "Gadgets",
     "location": "Kowloon, Hong Kong",
     "pledged": 94065,
@@ -144,6 +149,7 @@ const PROJECTS = [
     "title": "DogVibe: The Smart Dog Training Collar for Off-Leash Freedom",
     "creator": "DogVibe",
     "blurb": "A smart training system that detects leash pulling, sets virtual proximity fences, and runs from an app on your phone. No subscription.",
+    "description": "DogVibe is a smart training collar that helps owners gradually train their dogs for walks off the leash. It is aimed at owners struggling with leash pulling, poor recall, or excessive barking. The collar detects leash pulling, sets virtual proximity fences around the dog, and runs from a phone app. It works fully without any monthly subscription fee. The project is run by DogVibe, based in Austin, Texas, United States.",
     "category": "Hardware",
     "location": "Austin, TX",
     "pledged": 522341,
@@ -160,6 +166,7 @@ const PROJECTS = [
     "title": "Amoeba One: Mini keychain-phone.",
     "creator": "Amoeba One",
     "blurb": "Amoeba has a wavy screen, a built-in carabiner, and comes in a variety of fun colors.",
+    "description": "Amoeba One is a small phone designed to hang from a keychain. It is aimed at people who want a simple, portable phone that is hard to lose. The device has a wavy-shaped screen, a polished metal frame, and a built-in carabiner for clipping to keys or bags. It comes in several colours, including mint, yellow, and lilac. The project is run by Amoeba One, based in Troy, New York.",
     "category": "Gadgets",
     "location": "Troy, NY",
     "pledged": 245767,
@@ -176,6 +183,7 @@ const PROJECTS = [
     "title": "Await: Digital Ease, Analog Soul. Camera for what matters.",
     "creator": "Rolling Square",
     "blurb": "A modern camera inspired by film, designed to slow down, capture with intention, and receive meaningful prints at home.",
+    "description": "Await is a modern camera inspired by film photography and described as a post-instant camera. It is aimed at people who want to take fewer but more deliberate photos instead of endless phone snaps. The camera has a translucent blue and clear body and simple controls. Instead of showing photos instantly, it delivers printed photos to your home later. The project is run by Rolling Square, based in Lugano, Switzerland.",
     "category": "Camera Equipment",
     "location": "Lugano, Switzerland",
     "pledged": 117561,
@@ -192,6 +200,7 @@ const PROJECTS = [
     "title": "WUBEN G6 | Ultra Slim Multi-Use Keychain Light",
     "creator": "WUBEN",
     "blurb": "500 lm Main Light | 100 lm Side Light | Low-Force Switch | Detachable Blade | Adjustable Clip | Hidden USB Port",
+    "description": "The WUBEN G6 is an ultra-slim keychain flashlight that combines several everyday tools in one small metal device. It is aimed at people who carry a small light every day and want fewer separate gadgets. It offers a 500-lumen main light, a 100-lumen side light, a low-force switch, a detachable blade, an adjustable clip, and a hidden USB charging port. The project is run by WUBEN, based in Hong Kong.",
     "category": "Gadgets",
     "location": "Hong Kong, Hong Kong",
     "pledged": 114294,
@@ -208,6 +217,7 @@ const PROJECTS = [
     "title": "GhostBed Climate Pro™ - Cooling & Heating Mattress Cover",
     "creator": "GhostBed",
     "blurb": "Temperature-controlled sleep, made simpler | Dual-zone cooling and heating system | No subscription required",
+    "description": "GhostBed Climate Pro is a mattress cover that cools or heats each side of the bed separately. It is aimed at couples who prefer different sleeping temperatures. A bedside control unit sets each side, for example 62 degrees on one and 81 on the other, and a phone app also adjusts the settings. It requires no subscription fee. The project is run by GhostBed, based in Plantation, Florida, United States.",
     "category": "Hardware",
     "location": "Plantation, FL",
     "pledged": 433600,
@@ -224,6 +234,7 @@ const PROJECTS = [
     "title": "UniFormation S10: First Automated Desktop Resin 3D Printer",
     "creator": "UniFormation 3D",
     "blurb": "Automated Resin Printing & Post-Processing System | Less Resin Contact & Less Mess | Minimal Odor | 10.1\" 16K Resolution | Beginner Friendly",
+    "description": "The UniFormation S10 is a desktop resin 3D printer that automates both printing and post-processing. It is aimed at hobbyists and beginners put off by messy resin handling. The machine reduces direct contact with resin, keeps odour low, and finishes prints with much less manual cleaning work. It uses a 10.1-inch screen with 16K resolution for highly detailed parts. The project is run by UniFormation 3D, based in Hong Kong.",
     "category": "3D Printing",
     "location": "Hong Kong, Hong Kong",
     "pledged": 463000,
@@ -267,7 +278,8 @@ function cardHTML(p, cfg, idx){
         <div class="meta">${CLOCK}<span>${days} • ${pct.toLocaleString('en-US')}% funded</span></div>
         ${cfg.show_pledged_line ? `<div class="money"><b>${fmtMoney(p.currency,p.pledged)}</b> pledged of ${fmtMoney(p.currency,p.goal)} goal · ${p.backers.toLocaleString('en-US')} backers</div>` : ''}
         ${cfg.show_funding_rule_on_card ? `<div class="rule">${rule}</div>` : ''}
-        ${cfg.show_blurb ? `<div class="blurb">${esc(p.blurb)}</div>` : ''}
+        ${cfg.show_tagline ? `<div class="blurb">${esc(p.blurb)}</div>` : ''}
+        ${cfg.show_description ? `<div class="about"><div class="about-label">About this project</div><p>${esc(p.description)}</p></div>` : ''}
         ${cfg.show_tags ? `<div class="tags"><span class="tag">${esc(p.category)}</span><span class="tag">${esc(p.location)}</span></div>` : ''}
       </div>
     </div>
@@ -275,7 +287,9 @@ function cardHTML(p, cfg, idx){
 }
 
 const CFG = { site_name: "FUNDSPARK", page_heading: "Technology", show_pledged_line: true,
-  show_blurb: true, show_tags: true, show_funding_rule_on_card: false, show_sidebar: false,
+  show_tagline: false,       // the creator's own one-line tagline (lengths vary, 7 to 22 words)
+  show_description: true,    // standardised 70-word summary, same template for every project
+  show_tags: true, show_funding_rule_on_card: false, show_sidebar: false,
   image_mode: "real", columns: 4 };
 
 document.getElementById('logo').textContent = CFG.site_name;
